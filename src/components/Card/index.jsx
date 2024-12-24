@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { getProducts } from "../../service/productService";
 import { useDispatch, useSelector } from "react-redux";
+import { addProducts } from "../../store/productSlice";
 
 const Card = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,9 @@ const Card = () => {
   return (
     <>
       <h1>Hello</h1>
+      {
+        
+      }
     </>
   );
 };
