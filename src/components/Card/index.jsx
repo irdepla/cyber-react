@@ -6,6 +6,7 @@ import heartIcon from "../../assets/icons/heart-icon.svg"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Button } from "@mui/material";
 import { addToCart } from "../../store/cartSlice";
+import { NavLink } from "react-router";
 
 const Card = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,8 @@ const Card = () => {
     async function fetchProducts() {
       try {
         const res = await getProducts();
+        console.log("res:", res);
+        
         dispatch(addProducts(res));
       } catch (error) {
         console.log(error);
@@ -37,8 +40,10 @@ const Card = () => {
           <button className="ml-[100px]">
             <img src={heartIcon} alt="" />
           </button>
+          <NavLink to={`product-details/${item.id}`} >
           <img src={item.image} alt="" />
           <h1>{item.name}</h1>
+          </NavLink >
           <p className="font-semibold text-2xl">
             ${item.price}
           </p>
