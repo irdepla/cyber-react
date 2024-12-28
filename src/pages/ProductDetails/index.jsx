@@ -1,36 +1,38 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getProducts } from '../../service/productService';
+import React, { useEffect, useState } from 'react';
+import { getProducts, getProductsById } from '../../service/productService';
 import { addProducts } from '../../store/productSlice';
 import { NavLink, useParams } from 'react-router';
 import { getProduct } from '../../service/productDetailsService';
 
 const ProductDetails = () => {
 
-    const dispatch = useDispatch()
-    const { id } = useParams();
-    const product = useSelector((store) => store.products)
-
+    const id = useParams().id
+    const [product, setProduct] = useState(null)
 
     useEffect(() => {
-        async function fetchProducts() {
+        async function fetchProduct() {
             try {
-                const res = await getProduct(id)
-                console.log("res:", res);
-                dispatch(addProducts(res))
+                const res = await getProductsById(id)
+                setProduct(res)
+                console.log("product:", product);
             } catch (error) {
                 console.log(error);
+
             }
         }
-        fetchProducts()
+        fetchProduct()
     }, [])
+
+
+    // if (!product) {
+    //     return <p>Loading product details...</p>; // Handle loading state
+    // }
 
     return (
         <>
         <div className="container">
     <div className="grid grid-cols-2 gap-4">
         <div className="flex flex-col items-center" key={product.id}>
-          
           <img src={product.image} alt="" />
           <h1>{product.name}</h1>
           

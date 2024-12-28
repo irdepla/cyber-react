@@ -6,18 +6,17 @@ import heartIcon from "../../assets/icons/heart-icon.svg"
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Button } from "@mui/material";
 import { addToCart } from "../../store/cartSlice";
-import { NavLink } from "react-router";
+import { NavLink, useLocation } from "react-router";
 
 const Card = () => {
   const dispatch = useDispatch();
   const products = useSelector((store) => store.products);
+  
 
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await getProducts();
-        console.log("res:", res);
-        
+        const res = await getProducts();        
         dispatch(addProducts(res));
       } catch (error) {
         console.log(error);
