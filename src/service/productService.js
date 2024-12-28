@@ -9,9 +9,9 @@ export async function getProducts() {
     return res?.data?.data
 }
 
-const SINGLE_PRODUCT_URL = `/products/`; // Ensure trailing slash
+const SINGLE_PRODUCT_URL = `/products/`; 
 
-export async function getProductsById(id) {
-    const res = await apiClient.get(`${SINGLE_PRODUCT_URL}${id}`); // Append `id` with proper URL
-    return res?.data?.data;
+export async function getProductsById(id, setProduct) {
+    const res = await apiClient.get(`${SINGLE_PRODUCT_URL}${id}`); 
+    setProduct(res?.data?.data)
 }

@@ -9,7 +9,7 @@ const Home = () => {
             <section className='hero'>
                 <div className="container">
                     <div className="hero__wrapper flex flex-col items-center gap-12">
-                    <div className="hero__info flex flex-col ">
+                    <div className="hero__info flex justify-center gap-4 items-center flex-col ">
                         <span className='hero__subtitle text-center text-white bg-custom-gradient font-semibold opacity-[40%] text-[25px]'>
                         Pro.Beyond.
                         </span>
@@ -17,9 +17,10 @@ const Home = () => {
                         IPhone 14
                         </h1>
                         <span className=' text-center font-semibold text-[72px] text-white'>Pro</span>
-                        <span className='text-[#909090] '>
-                        Created to change everything for the better. For everyone
+                        <span className='text-[#909090] font-medium text-[19px] text-center '>
+                        Created to change everything for the better. For everyone 
                         </span>
+                        <button className=" px-[56px] py-4 border-[1px] border-solid">Shop Now</button>
                     </div>
                     <div className="hero__img"></div>
                     </div>

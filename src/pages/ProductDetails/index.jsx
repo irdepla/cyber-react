@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getProducts, getProductsById } from '../../service/productService';
 import { addProducts } from '../../store/productSlice';
-import { NavLink, useParams } from 'react-router';
+import { data, NavLink, useParams } from 'react-router';
 import { getProduct } from '../../service/productDetailsService';
 
 const ProductDetails = () => {
@@ -12,7 +12,7 @@ const ProductDetails = () => {
     useEffect(() => {
         async function fetchProduct() {
             try {
-                const res = await getProductsById(id)
+                const res = await getProductsById(id, (data) => setProduct(data))
                 setProduct(res)
                 console.log("product:", product);
             } catch (error) {
