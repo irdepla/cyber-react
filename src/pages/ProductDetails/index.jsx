@@ -14,7 +14,6 @@ const ProductDetails = () => {
             try {
                 const res = await getProductsById(id, (data) => setProduct(data))
                 setProduct(res)
-                console.log("product:", product);
             } catch (error) {
                 console.log(error);
 
@@ -24,9 +23,9 @@ const ProductDetails = () => {
     }, [])
 
 
-    // if (!product) {
-    //     return <p>Loading product details...</p>; // Handle loading state
-    // }
+    if (!product) {
+        return <p>Loading product details...</p>; 
+    }
 
     return (
         <>

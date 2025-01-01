@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../../components/Card';
 import "./index.css"
+import PhoneImageMobile from "../../assets/images/iphone-image-mobile.svg"
 
 const Home = () => {
     return (
@@ -8,7 +9,7 @@ const Home = () => {
         <main className='main'>
             <section className='hero'>
                 <div className="container">
-                    <div className="hero__wrapper flex flex-col items-center gap-12">
+                    <div className="hero__wrapper pt-[88px] flex flex-col items-center gap-12">
                     <div className="hero__info flex justify-center gap-4 items-center flex-col ">
                         <span className='hero__subtitle text-center text-white bg-custom-gradient font-semibold opacity-[40%] text-[25px]'>
                         Pro.Beyond.
@@ -20,9 +21,11 @@ const Home = () => {
                         <span className='text-[#909090] font-medium text-[19px] text-center '>
                         Created to change everything for the better. For everyone 
                         </span>
-                        <button className=" px-[56px] py-4 border-[1px] border-solid">Shop Now</button>
+                        <button className=" mt-4 px-[56px] py-4 border-[1px] rounded-[6px] text-white border-solid">Shop Now</button>
                     </div>
-                    <div className="hero__img"></div>
+                    <div className="hero__img">
+                        <img src={PhoneImageMobile} alt="" />
+                    </div>
                     </div>
                 </div>
             </section>
