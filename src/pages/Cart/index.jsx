@@ -5,6 +5,8 @@ import CartProduct from '../../components/CartProduct';
 const Cart = () => {
 
     const cart = useSelector((store) => store.cart)
+    const [sum, setSum] = useState(0)
+
 
     return (
 
@@ -19,6 +21,9 @@ const Cart = () => {
                 ))
             }
             </div>
+
+            <h2>Your total is:</h2>
+            <button>Order</button>
             </div>
             </section>
         </>

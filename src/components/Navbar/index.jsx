@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="container">
           <div className="nav__wrapper py-8 px-4 flex justify-between items-center">
             <div className="nav__logo">
-              <NavLink to="/">
+              <NavLink to="/admin">
                 <img src={cyberLogo} alt="" />
               </NavLink>
             </div>

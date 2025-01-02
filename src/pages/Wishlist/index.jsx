@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import crossIcon from "../../assets/icons/cross-icon.svg";
-import { addToCartFromWishlist } from "../../store/wishlistSlice";
+import { removeFromWishlist } from "../../store/wishlistSlice";
 
 const Wishlist = () => {
   const dispatch = useDispatch();
@@ -11,6 +11,10 @@ const Wishlist = () => {
 
   function handleAddToCart() {
     dispatch(addToCartFromWishlist(product));
+  }
+
+  function handleRemoving(productId) {
+    dispatch(removeFromWishlist(productId));
   }
 
   return (
@@ -37,12 +41,10 @@ const Wishlist = () => {
 
                 <p className="text-xl font-medium">${item.price}</p>
 
-                <button
-                  onClick={() => {
-                    dispatch(removeFromCart(item.id));
-                  }}
-                >
+                <button onClick={() => handleRemoving(item.id)}>
+
                   <img className="w-6 h-6" src={crossIcon} alt="" />
+                  
                 </button>
               </div>
             </div>
