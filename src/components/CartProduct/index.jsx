@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import crossIcon from "../../assets/icons/cross-icon.svg"
 import { useDispatch, useSelector } from "react-redux";
 import { decreaseQuantity, increaseQuantity, removeFromCart } from "../../store/cartSlice";
 
 const CartProduct = ({cartItem}) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch()    
 
 
   return (

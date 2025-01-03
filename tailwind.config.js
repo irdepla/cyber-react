@@ -12,6 +12,9 @@ export default {
       padding: {
         DEFAULT: "16px",
       },
+      noPadding: {
+        padding: "0", // Custom container without padding
+    },
       width: {
         DEFAULT: "100%",
         desktop: "1120px",
