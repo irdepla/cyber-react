@@ -6,8 +6,8 @@ const Cart = () => {
 
     const cart = useSelector((store) => store.cart)
     // const [sum, setSum] = useState(0)
-    let name = 0
-    const [state, setstate] = useState();
+    // let name = 0
+    // const [state, setstate] = useState();
 
     return (
 
