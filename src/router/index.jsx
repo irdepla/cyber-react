@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router";
+import { Navigate, Route, Routes } from "react-router";
 import Home from "../pages/Home";
 import MainLayout from "../layouts/MainLayout";
 import Cart from "../pages/Cart";
@@ -9,6 +9,7 @@ import AdminLayout from "../layouts/AdminLayout";
 import Admin from "../pages/Admin";
 import AddProducts from "../pages/Admin/AddProducts";
 import SignIn from "../pages/SignIn";
+import { Login } from "@mui/icons-material";
 
 const Router = () => {
   return (
@@ -26,7 +27,7 @@ const Router = () => {
 
 
         <Route path="/admin" element={<AdminLayout/>}>
-        <Route path="" element={<Admin/>} ></Route >
+        <Route path="" element={localStorage.getItem("token") ? <Admin/> : <Navigate to="/login" /> } ></Route >
         <Route path="addproducts" element={<AddProducts/>} />
         </Route>
       </Routes>

@@ -15,6 +15,7 @@ import MuiCard from "@mui/material/Card";
 import { styled } from "@mui/material/styles";
 import { Facebook, Google } from "@mui/icons-material";
 import { login } from "../../service/authService";
+import { useNavigate } from "react-router";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -64,6 +65,7 @@ export default function SignIn(props) {
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate()
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -74,11 +76,10 @@ export default function SignIn(props) {
   };
 
   const handleSubmit = async (event) => {
-    if (emailError || passwordError) {
       event.preventDefault();
-      return;
-    }
+
     const data = new FormData(event.currentTarget);
+
     console.log({
       email: data.get("username"),
       password: data.get("password"),
@@ -86,6 +87,10 @@ export default function SignIn(props) {
 
     const res = await login(data.get("username"), data.get("password"));
     console.log("login", res);
+
+    localStorage.setItem("token", res)
+
+    navigate("/admin")
   };
 
   const validateInputs = () => {
