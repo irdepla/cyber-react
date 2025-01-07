@@ -38,7 +38,6 @@ function CreateProduct() {
     try {
       const res = await addProducts(formData);
       setMessage("Product created successfully!");
-      // Reset form or perform other actions
     } catch (error) {
       console.error("Error creating product:", error);
       setMessage("Failed to create product.");
