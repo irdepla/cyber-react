@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { getProducts } from "../../service/productService";
 import { useDispatch, useSelector } from "react-redux";
 import { addProducts } from "../../store/productSlice";
@@ -14,6 +14,8 @@ const Card = () => {
   const dispatch = useDispatch();
   const products = useSelector((store) => store.products);
   const wishlist = useSelector((store) => store.wishlist);
+  
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     async function fetchProducts() {
@@ -30,20 +32,31 @@ const Card = () => {
   function handleToggle(product) {
     dispatch(toggle(product));
   }
+
   function handleAddToCart(product) {
     dispatch(addToCart(product));
   }
 
-  // Helper function to check if a product is in the wishlist
   function isInWishlist(productId) {
     return wishlist.some((item) => item.id === productId);
   }
 
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <>
       <div className="container">
+        <input
+          type="text"
+          placeholder="Search for products..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="mb-4 border-black p-2 border rounded"
+        />
         <div className="grid grid-cols-2 gap-4">
-          {products?.map((item) => (
+          {filteredProducts.map((item) => (
             <div className="flex flex-col items-center" key={item.id}>
               <button onClick={() => handleToggle(item)} className="ml-[100px]">
                 {isInWishlist(item.id) ? (
