@@ -8,7 +8,7 @@ import Wishlist from "../pages/Wishlist";
 import AdminLayout from "../layouts/AdminLayout";
 import Admin from "../pages/Admin";
 import AddProducts from "../pages/Admin/AddProducts";
-import Login from "../pages/Login";
+import SignIn from "../pages/SignIn";
 
 const Router = () => {
   return (
@@ -22,7 +22,7 @@ const Router = () => {
         </Route>
 
 
-        <Route path="/login" element={<Login/>}/>
+        <Route path="/login" element={<SignIn/>}/>
 
 
         <Route path="/admin" element={<AdminLayout/>}>
